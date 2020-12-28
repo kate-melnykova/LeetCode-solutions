@@ -1,0 +1,12 @@
+# mkdocs documentation
+/site
+
+# mypy
+.mypy_cache/
+
+# IDE
+.idea
+
+
+/venv/*
+venv/
