@@ -6,9 +6,26 @@ A mapping of digit to letters (just like on the telephone buttons) is given belo
 Note that 1 does not map to any letters.
 """
 from typing import List
+import itertools
 
 
 class Solution:
+    mapping = {
+        '2': ['a', 'b', 'c'],
+        '3': ['d', 'e', 'f'],
+        '4': ['g', 'h', 'i'],
+        '5': ['j', 'k', 'l'],
+        '6': ['m', 'n', 'o'],
+        '7': ['p', 'q', 'r', 's'],
+        '8': ['t', 'u', 'v'],
+        '9': ['w', 'x', 'y', 'z']
+    }
+    def letterCombinationsUsingItertools(self, digits: str) -> List[str]:
+        if not digits:
+            return []
+
+        return [''.join(combo) for combo in itertools.product(*[self.mapping[digit] for digit in digits])]
+
     def letterCombinations(self, digits: str) -> List[str]:
         """
         all word representations of digits using the direct iterative approach
@@ -17,23 +34,9 @@ class Solution:
         """
         if not digits:
             return []
-
-        mapping = {
-            '2': ['a', 'b', 'c'],
-            '3': ['d', 'e', 'f'],
-            '4': ['g', 'h', 'i'],
-            '5': ['j', 'k', 'l'],
-            '6': ['m', 'n', 'o'],
-            '7': ['p', 'q', 'r', 's'],
-            '8': ['t', 'u', 'v'],
-            '9': ['w', 'x', 'y', 'z']
-        }
         combos = set(['', ])
         for digit in digits:
-            new_combos = set()
-            for encoded in mapping[digit]:
-                new_combos = new_combos | set([c + encoded for c in combos])
-            combos = set(new_combos)
+            combos = set(c + encoded for c in combos for encoded in self.mapping[digit])
         return list(combos)
 
 
@@ -45,6 +48,15 @@ if __name__ == "__main__":
     ]
     print('Starting tests for the iterative approach')
     solve = Solution().letterCombinations
+    for seq, corr_ans in correct_ans:
+        pred_ans = solve(seq)
+        pred_ans.sort()
+        corr_ans.sort()
+        assert pred_ans == corr_ans, f'For input {seq}, got answer {pred_ans}, expected {corr_ans}'
+    print('All tests passed')
+
+    print('Starting tests for itertools solution')
+    solve = Solution().letterCombinationsUsingItertools
     for seq, corr_ans in correct_ans:
         pred_ans = solve(seq)
         pred_ans.sort()
