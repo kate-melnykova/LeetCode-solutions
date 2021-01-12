@@ -10,3 +10,5 @@
 
 /venv/*
 venv/
+
+__pychache__/*
