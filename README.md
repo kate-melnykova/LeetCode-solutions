@@ -8,3 +8,8 @@ To run any piece of the LeetCode problem, run
 ```
 python3 <file_name>
 ```
+for `.py` files and
+```
+node <filename>
+```
+to run the '.js' files.
