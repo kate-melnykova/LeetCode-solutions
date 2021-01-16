@@ -14,7 +14,7 @@ Note:
 You may assume k is always valid, 1 ≤ k ≤ array's length.
 **/
 console.log('Current directory: ' + process.cwd());
-/* import binarySearch from "./binarySearch.mjs"; */
+/** import binarySearch from "./binarySearch.mjs"; **/
 
 function binarySearch(arr, n){
     if (arr.length == 0){
