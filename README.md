@@ -1,4 +1,5 @@
 # LeetCode-solutions
+Solutions to LeetCode problems along with testcases, states runtime and space complexitites, and documentation of solutions.
 ![LeetCode-logo](https://github.com/kate-melnykova/LeetCode-solutions/blob/master/leetcode-logo.jpeg)
 ## Solutions to LeetCode problems for my own record
 I've been solving LeetCode problems for a while as a hobby, but then I found myself in a habit of not documenting the code
