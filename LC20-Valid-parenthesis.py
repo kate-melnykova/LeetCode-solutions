@@ -57,7 +57,6 @@ class Solution:
         return not len(open_brackets)
 
 
-
 if __name__ == "__main__":
     correct_answers = [
         ['()', True],
