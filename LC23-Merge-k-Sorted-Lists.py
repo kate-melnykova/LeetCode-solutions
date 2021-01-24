@@ -47,6 +47,10 @@ from LinkedList import ListNode
 
 class Solution:
     def mergeKLists(self, lists: List[ListNode]) -> ListNode:
+        """
+        Running time: O(nk)
+        Space complexity: O(k)
+        """
         merged = ListNode('*')
         merged_head = merged
         first_nodes_vals = list()
