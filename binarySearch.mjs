@@ -11,7 +11,7 @@ function binarySearch(arr, n){
     } else if (arr[arr.length - 1] < n){
         return arr.length
     }
-
+c
     let i_min = 0;
     let i_max = arr.length - 1;
     let guess;
