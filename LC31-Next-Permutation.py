@@ -35,6 +35,9 @@ class Solution:
     def nextPermutation(self, nums: List[int]) -> None:
         """
         Do not return anything, modify nums in-place instead.
+
+        Time complexity: O(n)
+        Space complexity: O(1)
         """
         # pre-plan
         # if nums[-2] < nums[-1], swap them, and we are done
