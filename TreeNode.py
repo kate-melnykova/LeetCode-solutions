@@ -1,4 +1,5 @@
 from typing import List
+from functools import wraps
 
 
 class IncorrectTreeNodeTranscription(Exception):
@@ -70,6 +71,45 @@ class TreeNode:
             return False
 
         return self.left == other.left and self.right == other.right
+
+
+def input_to_treenode(foo, args_idx=[], kwargs_keys=[]):
+    @wraps(foo)
+    def wrapper(*args, **kwargs):
+        nonlocal args_idx, kwargs_keys
+        if not args_idx and not kwargs_keys:
+            args_idx = list(range(len(args)))
+            kwargs_keys = list(kwargs.keys())
+
+        args = list(args)
+        print(args)
+        for idx in args_idx:
+            print(idx)
+            args[idx] = TreeNode.to_treenode(args[idx])
+        for key in kwargs:
+            kwargs[key] = TreeNode.to_treenode(kwargs[key])
+        return foo(*args, **kwargs)
+    return wrapper
+
+
+def output_to_list(foo, output_idx=[]):
+    @wraps(foo)
+    def wrapper(*args, **kwargs):
+        output = foo(*args, **kwargs)
+        if isinstance(output, TreeNode):
+            return output.to_list()
+
+        nonlocal output_idx
+        if not output_idx:
+            output_idx = list(range(len(output)))
+
+        type = type(output)
+        output = list(output)
+        for idx in output_idx:
+            print(idx)
+            output[idx] = output[idx].to_list()
+        return type(output)
+    return wrapper
 
 
 if __name__ == '__main__':

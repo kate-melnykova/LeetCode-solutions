@@ -80,6 +80,7 @@ class Solution:
 
 if __name__ == '__main__':
     from run_tests import run_tests
+    from TreeNode import output_to_list, input_to_treenode
 
     correct_answers = [
         [[1, 0, 2], 1, 2, [1, None, 2]],
@@ -88,5 +89,12 @@ if __name__ == '__main__':
         [[1, None, 2], 1, 3, [1, None, 2]],
         [[1, None, 2], 2, 4, [2]]
     ]
+    for i in range(len(correct_answers)):
+        correct_answers[i][0] = TreeNode.to_treenode(correct_answers[i][0])
+        correct_answers[i][-1] = TreeNode.to_treenode(correct_answers[i][-1])
 
-    def converter(foo):
+    methods = ['trimBST', ]
+    for method in methods:
+        print(f'Running tests for {method}')
+        run_tests(getattr(Solution(), method), correct_answers)
+
