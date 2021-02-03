@@ -54,6 +54,17 @@ from TreeNode import TreeNode
 #         self.right = right
 class Solution:
     def trimBST(self, root: TreeNode, low: int, high: int) -> TreeNode:
+        """
+        Keep the portion of the binary search tree whose values are in
+        [low, high]
+        :param root: root node of the binary search tree
+        :param low: minimum acceptable value
+        :param high: maximum acceptable value
+        :return: cropped binary search tree
+
+        Runtime complexity: O(n)
+        Space complexity: O(1) if ignoring stack memory and O(log n) otherwise
+        """
         if root is None:
             return None
 
@@ -80,7 +91,6 @@ class Solution:
 
 if __name__ == '__main__':
     from run_tests import run_tests
-    from TreeNode import output_to_list, input_to_treenode
 
     correct_answers = [
         [[1, 0, 2], 1, 2, [1, None, 2]],
