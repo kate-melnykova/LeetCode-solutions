@@ -46,6 +46,14 @@ Constraints:
 
 class Solution:
     def simplifyPath(self, path: str) -> str:
+        """
+        Convert path to UNIX format
+        :param path: path in windows format
+        :return: path in UNIX format
+
+        Runtime complexity: O(n) (go over the path once)
+        Space complexity: O(n) (for path_decomposed)
+        """
         path_decomposed = []
         cur_folder = ''  # store the cur_folder name built letter by letter
         n_dots = 0
