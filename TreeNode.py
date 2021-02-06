@@ -29,7 +29,7 @@ class TreeNode:
         return lst
 
     @classmethod
-    def to_treenode(cls, arr: List[int or str]) -> 'TreeNode' or None:
+    def to_treenode(cls, arr: List[int or str] or None) -> 'TreeNode' or None:
         if not arr or arr[0] is None:
             return None
 
