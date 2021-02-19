@@ -37,6 +37,10 @@ Constraints:
 
 class Solution:
     def minRemoveToMakeValid(self, s: str) -> str:
+        """
+        Time complexity: O(n)
+        Space complexity: O(n)
+        """
         to_keep = list()
         bal = 0
         for char in s:
