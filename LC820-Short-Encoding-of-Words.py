@@ -35,6 +35,10 @@ from typing import List
 
 class Solution:
     def minimumLengthEncoding(self, words: List[str]) -> int:
+        """
+        Time complexity: O(n)
+        Space complexity: O(n)
+        """
         words.sort(key=lambda x: len(x), reverse=True)
         total_length = 0
         encoded_words = set()
